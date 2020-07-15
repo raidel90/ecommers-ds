@@ -1,0 +1,8 @@
+[08-Jul-2019 02:42:49 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/german/public_html/nutrition/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/bootstrap/app.php on line 14
+[09-Jul-2019 03:49:25 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/german/public_html/nutrition/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/bootstrap/app.php on line 14

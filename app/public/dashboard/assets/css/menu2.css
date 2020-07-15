@@ -1,0 +1,103 @@
+
+.main-menu {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+}
+.main-menu.active {
+  display: block;
+}
+.main-menu .main-menu--nav {
+  background-color: white;
+  width: 300px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.main-menu .main-menu--nav a {
+  width: 100%;
+  display: block;
+  padding: 15px 30px;
+  color: #666;
+}
+.main-menu .main-menu--nav a:hover {
+  background-color: #0083c9;
+  color: white;
+}
+.main-menu .main-menu--bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  cursor: pointer;
+}
+.main-menu .nav-submenu > a {
+  position: relative;
+}
+.main-menu .nav-submenu > a:before {
+  content: '\f105';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  right: 30px;
+}
+.main-menu .nav-submenu .submenu {
+  background-color: #0083c9;
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  left: 300px;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+.main-menu .nav-submenu .submenu a {
+  color: white;
+}
+.main-menu .nav-submenu:hover a {
+  background-color: #0083c9;
+  color: white;
+}
+.main-menu .nav-submenu:hover .submenu {
+  display: block;
+}
+@media (max-width: 768px) {
+  .main-menu .nav-submenu:hover > a {
+    background-color: white !important;
+    color: #666 !important;
+  }
+  .main-menu .nav-submenu:hover > a:hover {
+    background-color: #0083c9 !important;
+    color: white !important;
+  }
+  .main-menu .nav-submenu:hover a {
+    background-color: #c6d2d8;
+    color: #666 !important;
+  }
+  .main-menu .nav-submenu .submenu {
+    position: relative;
+    display: block;
+    left: 0;
+    background-color: #c6d2d8;
+  }
+  .main-menu .nav-submenu .submenu a {
+    padding: 15px 30px 15px 45px;
+    color: #666 !important;
+  }
+  .main-menu .nav-submenu .submenu a:hover {
+    background-color: #0083c9;
+    color: white !important;
+  }
+}

@@ -1,0 +1,125 @@
+.main-menu{
+	position: fixed;
+	z-index: 50;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: none;
+	&.active{
+		display: block;
+	}
+	.main-menu--nav{
+		background-color: white;
+		// padding: 40px;
+		width: 300px;
+		height: 100%;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		a{
+			width: 100%;
+			display: block;
+			padding: 15px 30px;
+			color: #666;
+			&:hover{
+				background-color: #0083c9;
+				color: white;
+			}
+		}
+	}
+	.main-menu--bg{
+		background-color: rgba(0, 0, 0, 0.6);
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: calc(100% - 300px);
+		cursor: pointer;
+	}
+	.nav-submenu{
+		& > a{
+			position: relative;
+			&:before{
+				content: '\f105';
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 600;
+				display: inline-block;
+				font-style: normal;
+				font-variant: normal;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				position: absolute;
+				right: 30px;
+			}
+		}
+		.submenu{
+			background-color: #0083c9;
+			position: absolute;
+			width: 300px;
+			height: 100%;
+			left: 300px;
+			top: 0;
+			bottom: 0;
+			display: none;
+			a{
+				color: white;
+			}
+		}
+		&:hover{
+			a{
+				background-color: #0083c9;
+				color: white;
+			}
+			.submenu{
+				display: block;
+			}
+		}
+	}
+	@media(max-width: 768px){
+		.nav-submenu{
+			&:hover{
+				> a{
+					background-color: white !important;
+					color: #666 !important;
+					&:hover{
+						background-color: #0083c9 !important;
+						color: white !important;
+					}
+				}
+				a{
+					background-color: #c6d2d8;
+					color: #666 !important;
+
+				}
+			}
+			.submenu{
+				position: relative;
+				display: block;
+				left: 0;
+				background-color: #c6d2d8;
+				a{
+					padding: 15px 30px 15px 45px;
+					color: #666 !important;
+					&:hover{
+						background-color: #0083c9;
+						color: white !important;
+					}
+				}
+			}
+		}
+	}
+	@media(max-width: 370px){
+		.main-menu--nav{
+			width: 70%;
+		}
+		.nav-submenu{
+			.submenu{
+				width: 100%;
+			}
+		}
+		.main-menu--bg{
+			width: 30%;
+		}
+	}
+}

@@ -1,0 +1,376 @@
+.page-detalle{
+	padding: 40px 0;
+	background-color: #eaeaea;
+	@media(max-width: 768px){
+		padding: 110px 0 40px 0;
+	}
+	.breadcrumb{
+		padding: 0;
+		margin: 0;
+		border-radius: 0;
+		background-color: transparent;
+		color: #686868;
+		font-size: 13px;
+		margin-bottom: 10px;
+		span{
+			&:after{
+				content: '»';
+				display: inline-block;
+				margin: 0 5px;
+			}
+			&:last-child:after{
+				content: none;
+			}
+		}
+	}
+	.page-detalle--title{
+		font-size: 25px;
+		font-weight: 700;
+		margin-bottom: 20px;
+	}
+	.galeria{
+		position: relative;
+		.badge-online{
+			position: absolute;
+			top: -20px;
+			right: 20px;
+			z-index: 1;
+			img{
+				width: 63px;
+			}
+		}
+	}
+	.page-detalle--galeria{
+		.slick-list{
+			border-radius: 5px;
+		}
+	}
+	.page-detalle--datos{
+		display: flex;
+		justify-content: space-between;
+		.precio{
+			background-color: #006c00;
+			border-radius: 5px;
+			display: inline-block;
+			width: calc(50% - 10px);
+			height: 55px;
+			background-image: url('../img/icon-money.svg');
+			background-size: 35px;
+			background-position: 15px center;
+			background-repeat: no-repeat;
+			padding-left: 60px;
+			padding-right: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			color: white;
+			.numero{
+				font-weight: 600;
+				font-size: 23px;
+			}
+			.label{
+				font-size: 11px;
+				line-height: 1.2em;
+			}
+		}
+		.usado{
+			background-color: #019d3a;
+			border-radius: 5px;
+			display: inline-block;
+			width: calc(50% - 10px);
+			height: 55px;
+			display: flex;
+			padding: 0 25px;
+			align-items: center;
+			justify-content: space-between;
+			color: white;
+			b{
+				font-size: 12px;
+			}
+			.condicion{
+				font-size: 23px;
+			}
+		}
+		@media(max-width: 1200px) and (min-width: 768px){
+			.precio{
+				background-size: 22px;
+				padding-left: 50px;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
+				label{
+					order: 1;
+				}
+				.numero{
+					order: 2;
+					line-height: 1;
+				}
+				br{
+					display: none;
+				}
+			}
+		}
+		@media(max-width: 768px){
+			margin-top: 20px;
+		}
+		@media(max-width: 576px){
+			flex-direction: column;
+			.precio{
+				margin-bottom: 15px;
+			}
+			.precio, .usado{
+				width: 100%;
+			}
+		}
+	}
+	.page-detalle--vendedor{
+		@include card;
+		padding: 15px 25px;
+		margin: 20px 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: 100px;
+		.vendedor{
+			display: flex;
+			align-items: center;
+			.avatar{
+				margin-right: 15px;
+				img{
+					width: 77px;
+					height: 77px;
+					object-fit: contain;
+					object-position: center;
+				}
+			}
+			.content{
+				display: flex;
+				flex-direction: column;
+				min-height: 65px;
+				justify-content: center;
+			}
+			b{
+				color: #006b00;
+				font-size: 23px;
+				line-height: 1;
+			}
+			span{
+				font-weight: 600;
+				line-height: 1;
+			}
+		}
+		.telefono{
+			display: flex;
+			align-items: center;
+			color: #019d39;
+			font-size: 14px;
+			img{
+				width: 30px;
+				margin-right: 5px
+			}
+			a{
+				font-weight: 700;
+				color: #019d39;
+				text-decoration: none;
+			}
+		}
+		@media(max-width: 1200px){
+			.vendedor{
+				.avatar{
+					margin-right: 5px;
+					img{
+						width: 50px;
+						height: 50px;
+					}
+				}
+				b{
+					font-size: 15px;
+				}
+				span{
+					font-size: 14px;
+				}
+			}
+		}
+		@media(max-width: 768px){
+			.telefono{
+				display: none;
+			}
+		}
+		@media(max-width: 992px) and (min-width: 768px){
+			flex-direction: column;
+		}
+		@media(max-width: 576px){
+			flex-direction: column;
+		}
+	}
+	.page-detalle--contacto{
+		h3{
+			font-size: 18px;
+			font-weight: 800;
+		}
+		.contacto-row{
+			display: flex;
+			justify-content: space-between;
+		}
+		.row-button{
+			display: flex;
+			justify-content: space-between;
+			.right{
+				width: calc(50% - 3px);
+				// display: flex;
+				display: none;
+				justify-content: space-between;
+				button{
+					width: calc(50% - 3px);
+				}
+			}
+			.left{
+				// width: calc(50% - 3px);
+				width: 100%;
+			}
+		}
+		button{
+			outline: 0;
+			border: 0;
+			background-color: #019d39;
+			color: white;
+			height: 50px;
+			width: 100%;
+			border-radius: 5px;
+			font-size: 14px;
+			font-weight: 700;
+			cursor: pointer;
+			transition: .2s background-color;
+			&:hover{
+				background-color: #12883d;
+			}
+		}
+		input, textarea{
+			border: 0;
+			margin-bottom: 5px;
+			border-radius: 5px;
+			font-size: 14px;
+			color: black;
+			outline: none;
+			background-color: #f9f9f9;
+			@include placeholder{
+				color: black;
+			}
+		}
+		input{
+			width: calc(50% - 3px);
+			min-height: 40px;
+			padding: 0 10px;
+		}
+		textarea{
+			width: 100%;
+			min-height: 100px;
+			padding: 10px;
+			resize: none;
+		}
+		@media(max-width: 768px){
+			.row-button{
+				.right{
+					display: flex;					
+				}
+				.left{
+					width: calc(50% - 3px);	
+				}
+			}
+		}
+		@media(max-width: 400px){
+			.contacto-row{
+				flex-direction: column;
+				width: 100%;
+				.left, .right{
+					width: 100%;
+				}
+				.left{
+					margin-bottom: 5px;
+				}
+				input{
+					width: 100%;
+				}
+			}
+		}
+	}
+	.page-detalle--informacion{
+		margin-top: 25px;
+		h3{
+			margin-bottom: 20px;
+			font-size: 19px;
+			font-weight: 800;
+		}
+		.box-informacion{
+			@include card;
+			padding: 25px;
+			display: flex;
+			flex-wrap: wrap;
+			.info-item{
+				width: 20%;
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+				align-items: center;
+				margin: 15px 0;
+				font-size: 14px;
+				b{
+					margin-bottom: 5px;
+				}
+			}
+		}
+		@media(max-width: 992px){
+			.box-informacion{
+				.info-item{
+					width: 25%;
+				}
+			}
+		}
+		@media(max-width: 768px){
+			.box-informacion{
+				.info-item{
+					width: 33.3333%;
+				}
+			}
+		}
+		@media(max-width: 576px){
+			.box-informacion{
+				padding: 5px;
+				.info-item{
+					width: 50%;
+				}
+			}
+		}
+	}
+	.page-detalle--descripcion{
+		margin-top: 25px;
+		h3{
+			margin-bottom: 20px;
+			font-size: 19px;
+			font-weight: 800;
+		}
+		.box-descripcion{
+			@include card;
+			padding: 25px;
+			p{
+				font-size: 15px;
+				&:last-child{
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	.page-detalle--relacionados{
+		margin-top: 25px;
+		h3{
+			margin-bottom: 20px;
+			font-size: 19px;
+			font-weight: 700;
+		}
+		.relacionados{
+			// display: flex;
+		}
+	}
+
+}

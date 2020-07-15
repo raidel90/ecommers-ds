@@ -1,0 +1,40 @@
+[06-Jul-2019 23:15:38 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/german/public_html/nutrition/routes/web.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/web.php on line 14
+[07-Jul-2019 00:21:53 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/german/public_html/nutrition/routes/api.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/api.php on line 16
+[07-Jul-2019 04:46:57 UTC] PHP Fatal error:  Uncaught Error: Class 'Artisan' not found in /home/german/public_html/nutrition/routes/console.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/console.php on line 16
+[07-Jul-2019 06:12:09 UTC] PHP Fatal error:  Uncaught Error: Class 'Broadcast' not found in /home/german/public_html/nutrition/routes/channels.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/channels.php on line 14
+[09-Jul-2019 03:49:47 UTC] PHP Fatal error:  Uncaught Error: Class 'Broadcast' not found in /home/german/public_html/nutrition/routes/channels.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/channels.php on line 14
+[09-Jul-2019 03:49:47 UTC] PHP Fatal error:  Uncaught Error: Class 'Artisan' not found in /home/german/public_html/nutrition/routes/console.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/console.php on line 16
+[09-Jul-2019 03:49:47 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/german/public_html/nutrition/routes/api.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/api.php on line 16
+[09-Jul-2019 03:49:48 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/german/public_html/nutrition/routes/web.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/web.php on line 14
+[16-Jul-2019 05:45:10 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/german/public_html/nutrition/routes/api.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/api.php on line 16
+[16-Jul-2019 06:13:34 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/german/public_html/nutrition/routes/web.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/german/public_html/nutrition/routes/web.php on line 14

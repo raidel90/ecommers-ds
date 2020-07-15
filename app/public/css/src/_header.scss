@@ -1,0 +1,146 @@
+/*
+** Main Header
+*/
+.main-header{
+	.main-header--top{
+		padding: 20px 0;
+		background-color: #fefefe;
+		display: flex;
+		justify-content: space-between;
+		max-width: 1140px;
+		margin: auto;
+		a{
+			font-size: 11px;
+			color: #686868;
+			padding: 0 10px;
+		}
+	}
+	.main-header--bottom{
+		background-color: #f1f1f1;
+		// background-color: #dedede;
+		height: 65px;
+		box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+		.btn-menu{
+			height: 65px;
+			// background-color: #f4f4f4;
+			background-color: #fff;
+			display: inline-flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 0 25px;
+			margin-right: 20px;
+			flex-shrink: 0;
+			span{
+				width: 20px;
+				height: 1px;
+				background-color: #686868;
+				display: inline-block;
+				margin-bottom: 4px;
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+		}
+		.search{
+			position: relative;
+			width: 100%;
+			padding: 0 50px;
+			button{
+				outline: none;
+				position: absolute;
+				height: 40px;
+				margin: 0;
+				padding: 0 20px;
+				border: 0;
+				background: transparent;
+				color: #737373;
+			}
+			input{
+				height: 40px;
+				padding: 0 15px 0 55px;
+				width: 100%;
+				border-radius: 4px;
+				font-size: 13px;
+				border: 1px solid #c2c2c2;
+				outline: none;
+				@include placeholder{
+					color: #bcbcbc;
+				}
+			}
+		}
+		.logo{
+			flex-shrink: 0;
+			margin: 0;
+			// img{
+				// 	width: 150px;
+				// 	height: 50px;
+				// }
+			}
+			.nav-social{
+				margin-left: auto;
+				flex-shrink: 0;
+			}
+			.container{
+				display: flex;
+				align-items: center;
+			}
+		}
+		@media(max-width: 992px){
+			.main-header--bottom{
+				.search{
+					padding: 0 20px;
+					button{
+						padding: 0 10px;
+					}
+					input{
+						padding: 0 15px 0 35px;
+					}
+				}
+			}
+		}
+		@media(max-width: 768px){
+			.main-header--top a{
+				padding: 0 5px;
+			}
+			.main-header--bottom{
+				.search{
+					position: absolute;
+					top: 129px;
+					left: 0;
+					right: 0;
+					padding: 20px;
+					background: #009833;
+				}
+			}
+			position: relative;
+			z-index: 15;
+		}
+		@media(max-width: 576px){
+			.main-header--top{
+				display: none;
+			}
+			.main-header--bottom{
+				.search{
+					top: 65px;
+				}
+				.logo{
+					img{
+						width: 150px;
+					}
+				}
+				.btn-menu{
+					padding: 0 15px;
+					margin-right: 10px;
+				}
+			}
+			.container{
+				padding: 0 5px;
+			}
+		}
+		@media(max-width: 400px){
+			.nav-social{
+				display: none;
+			}
+		}
+	}

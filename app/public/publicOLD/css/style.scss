@@ -1,0 +1,600 @@
+@import 'src/vars';
+@import 'src/cards';
+@import 'src/footer';
+@import 'src/header';
+@import 'src/menu';
+@import 'src/modal';
+@import 'src/buttons';
+
+@import 'src/detalle';
+@import 'src/producto';
+@import 'src/empresa';
+
+
+.slick-lightbox{
+	@extend .custom-dots;
+	.slick-arrow.arrow-prev{
+		left: 25px;
+	}
+	.slick-arrow.arrow-next{
+		right: 25px;
+	}
+}
+
+
+
+.container{
+	max-width: 1200px
+}
+
+
+
+/*
+** Slider Main
+*/
+.main-slider{
+	img{
+		width: 100%;
+		height: auto;
+		&.mobile{
+			display: none;
+		}
+	}
+	.slick-dots{
+		margin: 0 auto;
+		padding: 0;
+		position: absolute;
+		bottom: 15px;
+		left: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		li{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			&.slick-active{
+				button{
+					background: transparent;
+				}
+			}
+		}
+		button{
+			font-size: 0;
+			width: 25px;
+			height: 25px;
+			border-radius: 25px;
+			// border: 1px solid white;
+			border: 0;
+			box-shadow: 0 0 0 1px white;
+			display: inline-block;
+			margin: 0 5px;
+			outline: none;
+			cursor: pointer;
+			background: white;
+			transition: background .2s;
+		}
+	}
+	@media(max-width: 992px){
+		img{
+			display: none;
+			&.mobile{
+				display: block;
+			}
+		}
+		.slick-dots{
+			bottom: 5px;
+			button{
+				width: 10px;
+				height: 10px;
+				margin: 0 2px;
+				padding: 0;
+			}
+		}
+	}
+	@media(max-width: 768px){
+		margin-top: 80px;
+	}
+}
+
+
+/* badge carta */
+.badge-carta{
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	figure{
+		margin: 0;
+		img{
+			height: 90px;
+		}
+	}
+	.btn-carta{
+		color: #2b2b2b;
+		font-size: 20px;
+		letter-spacing: -0.04em;
+		font-weight: 600;
+		margin: 0 30px;
+	}
+	.btn-carta--clic{
+		background-color: #00008c;
+		height: 45px;
+		border: 0;
+		color: white;
+		padding: 0 40px;
+		text-transform: uppercase;
+		border-radius: 7px;
+		font-size: 14px;
+		cursor: pointer;
+		outline: none;
+		font-weight: 600;
+		i{
+			margin-left: 5px;
+		}
+	}
+	.mobile{
+		display: none;
+	}
+	@media(max-width: 992px){
+		figure{
+			img{
+				max-width: 200px;
+				height: auto;
+			}
+		}
+		.btn-carta--clic{
+			padding: 0 20px;
+		}
+	}
+	@media(max-width: 768px){
+		box-shadow: none;
+		width: 100%;
+		padding: 15px 0;
+		border-radius: 0;
+		.content{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		figure{
+			display: none;
+			&.mobile{
+				display: block;
+			}
+		}
+		.btn-carta{
+			font-size: 17px;
+		}
+		.btn-carta--clic{
+			background-color: transparent;
+			color: #00008c;
+			text-transform: inherit;
+			font-size: 16px;
+			padding: 0;
+			height: auto;
+			i{
+				display: none;
+			}
+		}
+	}
+	@media(max-width: 576px){
+		padding: 15px;
+		.btn-carta{
+			margin: 0;
+			white-space: nowrap;
+			padding: 0;
+			font-size: 16px;
+		}
+		figure{
+			img{
+				margin-right: 5px;
+				width: 50px;
+			}
+		}
+	}
+}
+
+.main-badge{
+	background-color: #eaeaea;
+	padding: 40px 0;
+	@media(max-width: 576px){
+		padding: 20px 0;
+	}
+}
+
+
+
+
+.main-productos{
+	padding: 50px 0 0 0;
+	background-color: #ebebeb;
+	.main-productos--slider{
+		padding-top: 40px;
+	}
+	.slick-track{
+		display: flex;
+	}
+	.btn-categorias{
+		color: #1c9c3a;
+		font-size: 30px;
+		text-align: center;
+		font-weight: 600;
+		margin-top: 15px;
+	}
+	@media(max-width: 992px){
+		.slick-track{
+			display: block !important;
+		}
+		.btn-categorias{
+			font-size: 20px;
+		}
+	}
+	@media(max-width: 768px){
+		padding: 0;
+		.main-productos--slider{
+			padding-top: 0;
+		}
+		.slick-arrow{
+			display: none !important;
+		}
+		.col-12{
+			padding: 0;
+		}
+	}
+}
+
+.main-showcase{
+	padding: 50px 0;
+	background-color: #eaeaea;
+	.main-showcase--title{
+		margin-bottom: 20px;
+		font-size: 25px;
+		letter-spacing: -0.06em;
+		font-weight: 600;
+		b{
+			font-weight: 800;
+		}
+	}
+	&.showcase-ofertas{
+		@media(max-width: 768px){
+			padding: 0 0 20px 0;
+		}
+	}
+
+	/* cards mobile */
+	&.showcase-ofertas, &.showcase-venturino, &.showcase-semana, &.showcase-precision{
+		@media(max-width: 768px){
+			.card-producto{
+				transform: translateX(calc(10% + 5px));
+				&:hover{
+					transform: translateX(calc(10% + 5px)) scale(1.05);
+				}
+			}
+			.slick-arrow{
+				display: none !important;
+			}
+			.productos-slider{
+				margin: 0 -15px;
+			}
+		}
+	}
+	&.showcase-lideres{
+		@media(max-width: 768px){
+			.card-marca{
+				transform: translateX(calc(10% + 5px));
+			}
+			.slick-arrow{
+				display: none !important;
+			}
+			.productos-slider{
+				margin: 0 -15px;
+			}
+		}		
+	}
+	&.showcase-campos{
+		@media(max-width: 768px){
+			.card-campo{
+				transform: translateX(calc(10% + 5px));
+			}
+			.slick-arrow{
+				display: none !important;
+			}
+			.main-campos--slider{
+				margin: 0 -15px;
+			}
+		}
+	}
+	&.showcase-todo{
+		@media(max-width: 768px){
+			.card-todos{
+				transform: translateX(calc(5% + 5px));
+				&:hover{
+					transform: translateX(calc(5% + 5px)) scale(1.05);
+				}
+			}
+			.slick-arrow{
+				display: none !important;
+			}
+			.todos-usados-slider{
+				margin: 0 -15px;
+			}
+		}
+	}
+	&.showcase-inmobiliarias{
+		@media(max-width: 768px){
+			.card-inmobiliarias{
+				transform: translateX(calc(5% + 5px));
+				&:hover{
+					transform: translateX(calc(5% + 5px)) scale(1.05);
+				}
+			}
+			.slick-arrow{
+				display: none !important;
+			}
+			.todos-usados-slider{
+				margin: 0 -15px;
+			}
+		}
+	}
+	&.showcase-semillas, &.showcase-lideres, &.showcase-siembra{
+		@media(max-width: 768px){
+			.card-siembra, .card-insumos, .card-semillas{
+				transform: translateX(calc(10% + 5px));
+				&:hover{
+					transform: translateX(calc(10% + 5px)) scale(1.05);
+				}
+			}
+			.slick-arrow{
+				display: none !important;
+			}
+			.semillas-slider{
+				margin: 0 -15px;
+			}
+		}
+	}
+	@media(max-width: 576px){
+		padding: 20px 0;
+		.main-showcase--title{
+			margin-bottom: 10px;
+			font-size: 21px;
+		}
+	}
+}
+
+.badge-rubros{
+	padding: 40px 0;
+	background-color: #007bc0;
+	text-align: center;
+	.badge-rubros--content{
+
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.btn-publicar{
+		@include btn-square;
+		background-color: #90bf55;
+		height: 60px;
+		padding: 0 60px;
+	}
+	.btn-registrarse{
+		@include btn-square;
+		background-color: #999999;
+		height: 60px;
+		padding: 0 60px;
+	}
+	.btn-rubros{
+		color: white;
+		font-style: italic;
+		font-size: 30px;
+		font-weight: 500;
+	}
+	@media(max-width: 768px){
+		.badge-rubros--content{
+			// flex-wrap: wrap;
+			flex-direction: column;
+			.btn-rubros{
+				margin: 20px 0;
+			}
+		}
+	}
+}
+.badge-concesionarios{
+	padding: 40px 0;
+	background-color: #5f98b4;
+	text-align: center;
+	.badge-concesionarios--content{
+
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.btn-publicar{
+		@include btn-square;
+		background-color: #90bf55;
+		height: 60px;
+		padding: 0 60px;
+	}
+	.btn-precios{
+		@include btn-square;
+		background-color: #2d4fa4;
+		height: 60px;
+		padding: 0 60px;
+	}
+	.btn-concesionarios{
+		color: white;
+		font-style: italic;
+		font-size: 30px;
+		font-weight: 500;
+	}
+	@media(max-width: 768px){
+		.badge-concesionarios--content{
+			// flex-wrap: wrap;
+			flex-direction: column;
+			.btn-concesionarios{
+				margin: 20px 0;
+			}
+		}
+	}
+}
+.main-campos{
+	padding: 60px 0;
+	.main-campos--title{
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	@media(max-width: 576px){
+		.main-campos--title{
+			font-size: 20px;
+		}
+	}
+}
+.main-inmobiliarias{
+	.main-inmobiliarias--title{
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	@media(max-width: 576px){
+		.main-inmobiliarias--title{
+			font-size: 20px;
+		}
+	}
+}
+.main-inmobiliarias--badge{
+	h5{
+		text-align: center;
+		margin: 30px 0;
+		font-size: 35px;
+		b{
+			position: relative;
+			background-image: url('../img/line.png');
+			background-repeat: no-repeat;
+			background-position: bottom left;
+			padding-bottom: 3px;
+		}
+	}
+	@media(max-width: 576px){
+		h5{
+			font-size: 20px;
+
+		}
+	}
+}
+
+.main-vehiculos{
+	overflow: hidden;
+	header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 25px;
+		h3{
+			color: white;
+			letter-spacing: 0.1em;
+			font-weight: 700;
+		}
+		.btn-vermas{
+			letter-spacing: 0.3em;
+			color: white;
+			text-transform: uppercase;
+			font-weight: 600;
+		}
+	}
+	.section-repuestos{
+		position: relative;
+		background-color: #acaeae;
+		padding: 60px 30px;
+		&:before{
+			z-index: -1;
+			background-color: #acaeae;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 50vw;
+			content: '';
+		}
+	}
+	.section-vehiculos{
+		position: relative;
+		background-color: #416e80;
+		padding: 60px 30px;
+		&:before{
+			z-index: -1;
+			background-color: #416e80;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 50vw;
+			content: '';
+		}
+	}
+	@media (max-width: 992px){
+		.section-repuestos{
+			padding: 60px 0;
+			&:before{
+				width: 100vw;
+				left: 0;
+				right: 0;
+			}
+			&:after{
+				z-index: -1;
+				background-color: #acaeae;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: -50vw;
+				width: 50vw;
+				content: '';
+			}
+		}
+		.section-vehiculos{
+			padding: 60px 0;
+			&:before{
+				width: 100vw;
+				left: 0;
+				right: 0;
+			}
+			&:after{
+				z-index: -1;
+				background-color: #416e80;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: -50vw;
+				width: 50vw;
+				content: '';
+			}
+		}
+	}
+	@media (max-width: 576px){
+		.section-repuestos, .section-vehiculos{
+			padding: 60px 15px;
+		}
+	}
+}
+
+
+.main-semillas{
+	padding: 60px 0;
+	background-image: url('../img/semilla_bg.jpg');
+	@include bgcover;
+	.main-semillas--title{
+		text-align: center;
+		color: white;
+		font-size: 45px;
+		font-weight: 700;
+	}
+	@media (max-width: 576px){
+		.main-semillas--title{
+			font-size: 20px;
+		}
+	}
+}

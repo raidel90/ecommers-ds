@@ -1,0 +1,726 @@
+.card-categoria{
+	text-align: center;
+	min-height: 250px !important;
+	display: flex !important;
+	justify-content: center;
+	flex-direction: column;
+	transition: .3s width, .3s transform;
+	will-change: width;
+	transform: translateZ(0);
+	.card-categoria--title{
+		color: #000;
+		font-size: 15px;
+		font-weight: 600;
+		transition: .2s font-size;
+		letter-spacing: -0.04em;
+	}
+	figure{
+		min-height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&.active{
+		.card-categoria--title{
+			font-size: 22px;
+		}
+	}
+	@media(min-width: 992px){
+		&.active, &:hover{
+			width: 300px !important;
+		}
+	}
+	@media(max-width: 992px) and (min-width: 768px){
+		&.slick-center{
+			transform: scale(1.5);
+		}
+	}
+	@media(max-width: 992px){
+		padding: 15px;
+	}
+	@media(max-width: 768px){
+		min-height: auto !important; 
+		&.active{
+			.card-categoria--title{
+				font-size: 15px;
+			}
+		}
+	}
+	@media(max-width: 576px){
+		figure{
+			min-height: 80px;
+			margin: 0;
+		}
+	}
+}
+
+
+
+.card-marca{
+	background-color: white;
+	border-radius: 7px;
+	overflow: hidden;
+	margin: 0 5px;
+	display: inline-block;
+	.card-marca--header{
+		height: 80px;
+		background-image: url('../img/azulado.png');
+		background-position: bottom center;
+		position: relative;
+		.marca-logo{
+			margin: 0;
+			position: absolute;
+			bottom: -25px;
+			left: 0;
+			right: 0;
+			img{
+				border-radius: 6px;
+				box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+				margin: 0 auto;
+				padding: 5px;
+				background-color: white;
+			}
+		}
+	}
+	.card-marca--image{
+		margin: 0;
+		padding: 50px 30px 30px 30px;
+		img{
+			margin: auto;
+			height: 70px;
+			object-fit: contain;
+		}
+	}
+	.card-marca--content{
+		text-align: center;
+		padding-bottom: 30px;
+	}
+	@media(max-width: 576px){
+		.card-marca--image{
+			padding: 35px 10px 10px 10px;
+		}
+		.card-marca--content{
+			padding: 0 10px 10px 10px;
+		}
+		.btn-blue{
+			padding: 7px 10px;
+		}
+	}
+}
+
+
+
+
+.card-todos{
+	background-color: white;
+	border-radius: 7px;
+	margin: 12px 5px;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	display: flex !important;
+	align-items: center;	
+	min-height: 220px;
+	transition: .2s transform, .2s box-shadow;
+	&:hover{
+		transform: scale(1.03);
+		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	}
+
+	.card-todos--image{
+		width: 60%;
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.card-todos--content{
+		width: 40%;
+		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		.card-todos--title{
+			font-size: 25px;
+			letter-spacing: -0.06em;
+			font-weight: 600;
+			color: #222;
+		}
+	}
+	.btn-blue{
+		margin-top: 15px;
+	}
+	@media(max-width: 992px){
+		.card-todos--image{
+			width: 50%;
+		}
+		.card-todos--content{
+			width: 50%;
+		}
+	}
+	@media(max-width: 768px){
+		.card-todos--image{
+			width: 40%;
+		}
+		.card-todos--content{
+			width: 60%;
+			.card-todos--title{
+				font-size: 22px;
+			}
+			.btn-blue{
+				margin: 0;
+				padding: 7px 10px;
+			}
+		}
+	}
+	@media(max-width: 576px){
+		min-height: 160px;
+		.card-todos--image{
+			width: 50%;
+		}
+		.card-todos--content{
+			padding: 5px;
+			width: 50%;
+			.card-todos--title{
+				font-size: 19px;
+			}
+		}
+	}
+}
+
+
+
+
+
+.card-semillas{
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	margin: 5px 10px;
+	text-align: center;
+	padding: 15px 10px;
+	
+	transition: .2s transform, .2s box-shadow;
+	&:hover{
+		transform: scale(1.05);
+		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	}
+	figure{
+		margin: 0;
+		img{
+			margin: auto;
+			height: 115px;
+		}
+	}
+	.card-semillas--title{
+		color: #333;
+		font-size: 18px;
+		margin: 5px 0 0 0;
+		line-height: 1;
+		font-weight: 600;
+		letter-spacing: -0.05em
+	}
+	@media(max-width: 768px){
+		margin: 5px;
+		figure{
+			img{
+				object-fit: contain;
+				object-position: center;
+			}
+		}
+	}
+}
+
+
+
+.card-insumos{
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	margin: 5px 10px;
+	text-align: center;
+	padding: 15px 10px;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	min-height: 160px;
+
+	transition: .2s transform, .2s box-shadow;
+	&:hover{
+		transform: scale(1.05);
+		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	}
+
+	figure{
+		margin: 0;
+		img{
+			margin: auto;
+			max-height: 115px;
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+	.card-insumos--title{
+		color: #333;
+		font-size: 18px;
+		margin: 5px 0 0 0;
+		line-height: 1;
+		font-weight: 600;
+		letter-spacing: -0.05em
+	}
+	@media(max-width: 768px){
+		margin: 5px;
+		min-height: 120px;
+	}
+}
+
+.card-siembra{
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	margin: 5px 10px;
+	text-align: center;
+	padding: 15px 10px;
+	display: flex !important;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 160px;
+	transition: .2s transform, .2s box-shadow;
+	&:hover{
+		transform: scale(1.05);
+		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	}
+	figure{
+		margin: 0;
+		img{
+			margin: auto;
+			max-height: 115px;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+		}
+		height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.card-siembra--title{
+		color: #333;
+		font-size: 15px;
+		margin-top: auto;
+		line-height: 1;
+		font-weight: 600;
+		letter-spacing: -0.05em;
+		margin-bottom: 0;
+	}
+	@media(max-width: 768px){
+		margin: 5px;
+		min-height: 120px;
+	}
+	@media(max-width: 576px){
+		figure{
+			height: 70px;
+		}
+		min-height: 100px;
+	}
+}
+
+
+
+
+
+
+
+
+.card-inmobiliarias{
+	background-color: white;
+	border-radius: 7px;
+	margin: 13px 5px;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	display: flex !important;
+	align-items: center;
+	min-height: 220px;
+
+	transition: .2s transform, .2s box-shadow;
+	&:hover{
+		transform: scale(1.03);
+		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	}
+
+	.card-inmobiliarias--image{
+		width: 60%;
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		padding: 30px 0;
+		img{
+			border-radius: 0 15px 15px 0;
+		}
+	}
+	.card-inmobiliarias--content{
+		width: 40%;
+		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		.card-inmobiliarias--title{
+			font-size: 25px;
+			letter-spacing: -0.06em;
+			font-weight: 600;
+			color: #222;
+		}
+	}
+	.btn-blue{
+		margin-top: 15px;
+	}
+	@media(max-width: 992px){
+		.card-todos--image{
+			width: 50%;
+		}
+		.card-todos--content{
+			width: 50%;
+		}
+	}
+	@media(max-width: 768px){
+		.card-todos--image{
+			width: 40%;
+		}
+		.card-todos--content{
+			width: 60%;
+			.card-todos--title{
+				font-size: 22px;
+			}
+			.btn-blue{
+				margin: 0;
+				padding: 7px 10px;
+			}
+		}
+	}
+	@media(max-width: 576px){
+		min-height: 160px;
+		.card-inmobiliarias--image{
+			width: 55%;
+		}
+		.card-inmobiliarias--content{
+			width: 45%;
+			padding: 0 0 0 10px;
+			.card-inmobiliarias--title{
+				font-size: 19px;
+			}
+			.btn-blue{
+				margin: 0;
+				padding: 7px 10px;
+			}
+		}
+	}
+}
+
+
+
+
+
+.card-producto{
+	display: inline-block;
+	background-color: white;
+	margin: 20px 5px 15px 5px;
+	position: relative;
+	border-radius: 7px;
+	
+
+	transition: .2s transform, .2s box-shadow;
+	&:hover{
+		transform: scale(1.05);
+		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+		.card-producto--online{
+			height: 25px;
+			color: white;
+		}
+	}
+	.card-producto--online{
+		background-color: #ff943a;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		color: white;
+		text-align: center;
+		font-size: 11px;
+		height: 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: .3s height, .3s color;
+		border-radius: 5px 5px 0 0;
+		color: transparent;
+		&:before{
+			content: '';
+			background-image: url('../img/badge-online-sm.png');
+			position: absolute;
+			top: -10px;
+			left: 10px;
+			background-size: 35px;
+			width: 35px;
+			height: 40px;
+			z-index: 999;
+		}
+		@media(max-width: 500px){
+			font-size: 9px;
+			justify-content: flex-start;
+			padding-left: 50px;
+		}
+		@media(max-width: 410px){
+			height: 0 !important;
+			color: transparent !important;
+		}
+	}
+	.card-producto--oferta{
+		width: 50px;
+		height: 50px;
+		background-image: url('../img/star.png');
+		background-size: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-size: 12px;
+		font-weight: 600;
+		margin: 0;
+		position: absolute;
+		top: -10px;
+		right: 10px;
+	}
+
+	.card-producto--image{
+		margin: 0;
+		img{
+			@include imgcover;
+			width: 100%;
+			height: 170px;
+			border-radius: 5px 5px 0 0;
+		}
+	}
+	.card-producto--title{
+		margin: 0;
+		border-bottom: 1px solid #f0f0f0;
+		text-align: center;
+		padding: 5px 0;
+		font-weight: 600;
+		font-size: 14px;
+		color: black;
+	}
+	.card-producto--content{
+		padding: 10px;
+		text-align: center;
+		.card-producto--categoria{
+			color: #8f8f8f;
+			font-size: 12px;
+			display: block;
+			min-height: 20px;
+			&.c-grey{
+				color: #cccccc;
+			}
+			&.c-verde{
+				color: #5b9b44;
+				font-weight: 600;
+				font-size: 13px;
+			}
+			i{
+				font-size: 12px;
+			}
+		}
+		.card-producto--location{
+			color: #8f8f8f;
+			font-size: 12px;
+			i{
+				font-size: 10px;
+				margin-right: 5px;
+				color: #0083c8;
+			}
+		}
+		.card-producto--precio{
+			color: #1c1c1c;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 1;
+		}
+		.card-producto--precio-linetrough{
+			text-decoration: line-through;
+			color: black;
+		}
+		.card-producto--btn{
+			margin-top: 10px;
+			border: 2px solid #dfdfdf;
+			display: inline-flex;
+			height: 40px;
+			width: 100%;
+			color: #8f8f8f;
+			font-size: 12px;
+			font-weight: 700;
+			align-items: center;
+			justify-content: center;
+			transition: .1s background-color, .1s color, .1s border-color;
+			&:hover{
+				background-color: #007bc0;
+				color: white;
+				border-color: #007bc0;
+			}
+		}
+	}
+	@media(max-width: 400px){
+		.card-producto--image{
+			img{
+				height: 120px
+			}
+		}
+	}
+}
+
+.card-campo{
+	position: relative;
+	padding-bottom: 90px;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding-top: 40px;
+	@include bgcover;
+	margin: 0 5px;
+	border-radius: 7px;
+	height: 250px;
+	img{
+		margin: auto;
+		// max-width: 80%;
+		max-height: 130px
+	}
+	.card-campo--shape{
+		margin: 0;
+	}
+	.card-campo--title{
+		position: absolute;
+		line-height: 1;
+		bottom: 20px;
+		left: 0;
+		background-color: #8fbf55;
+		text-align: left;
+		display: inline-block;
+		color: white;
+		padding: 13px 65px 13px 15px;
+		font-size: 15px;
+		background-image: url('../img/btn-arrow.svg');
+		background-repeat: no-repeat;
+		background-size: 19px;
+		background-position: calc(100% - 20px) center;
+	}
+	@media(max-width: 576px){
+		padding-top: 10px;
+		padding-bottom: 50px;
+		padding-left: 15px;
+		padding-right: 15px;
+		height: 180px;
+		img{
+			margin: auto;
+			// width: 80%;
+			// height: 150px;
+			max-height: 90px;
+			object-fit: contain;
+		}
+		.card-campo--title{
+			font-size: 12px;  
+			bottom: 10px;
+			background-position: calc(100% - 4px) center;
+			padding: 10px 25px 10px 5px;
+			width: 100%;
+		}
+	}
+}
+
+.card-inmobiliaria{
+	margin: 0 5px;
+
+}
+
+.card-vehiculo{
+	@include bgcover;
+	min-height: 250px !important;
+	margin: 0 5px;
+	// width: 250px;
+	display: inline-block;
+	position: relative;
+	padding: 15px;
+	.card-vehiculo--title{
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+		right: 0;
+		text-align: center;
+		color: white;
+		font-weight: 700;
+		font-size: 22px;
+		text-shadow: 0 0 20px black;
+	}
+}
+
+
+.card-semilla{
+	margin: 0 5px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+	transition: .3s transform;
+	will-change: transform;
+	img{
+		@include imgcover;
+		width: 100%;
+		height: 270px;
+		opacity: .7;
+		transition: .3s width, .3s opacity;
+		will-change: width, opacity;
+	}
+	.card-semilla--title{
+		color: white;
+		font-weight: 400;
+		margin-top: 15px;
+		transition: .3s font-weight;
+	}
+	&.slick-center{
+		transform: scale(1.2);
+		position: relative;
+		z-index: 99;
+		img{
+			opacity: 1;
+			// width: 250px;
+		}
+		.card-semilla--title{
+			font-weight: 700;
+		}
+	}
+}
+
+.card-logo{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 15px;
+	// width: 100%;
+	// padding-bottom: 100%;
+	figure{
+		width: 100%;
+		padding-bottom: 100%;
+		background-color: white;
+		position: relative;
+		margin: 0;
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			object-fit: contain;
+			padding: 25px;
+		}
+	}
+}
