@@ -99,11 +99,13 @@ class PasswordResetController extends Controller
                 'message' => 'We can\'t find a user with that e-mail address.'
             ], 404);
         $user->password = bcrypt($request->password);
+       // dd($user);
         $user->save();
+
         $passwordReset->delete();
         $user->notify(new PasswordResetSuccess($passwordReset));
         
-        $request->session()->flash('success', 'Contraseña actualizada');
+        $request->session()->flash('status', 'Contraseña actualizada');
         return $this->index();
     }
 }
