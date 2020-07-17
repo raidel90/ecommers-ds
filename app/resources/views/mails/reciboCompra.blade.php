@@ -1,4 +1,10 @@
+<!DOCTYPE html PUBLIC >
+<html>
+<head>
 <style>
+h2,h3,h4{
+  color:black !important;
+}
   table {
     border-collapse: collapse;
     width: 100%;
@@ -11,7 +17,7 @@
   }
 
   .top {
-    background-color: #13386e;
+    background-color: #377e97;
     margin: 50px;
     padding-top: 30px;
     padding-bottom: 50px;
@@ -49,7 +55,7 @@
     font-size: 25px;
     box-sizing: border-box;
     border-radius: 3px;
-    color: #fff;
+    color: white !important;
     display: inline-block;
     text-decoration: none;
     background-color: #3490dc;
@@ -66,25 +72,27 @@
   
   */
 </style>
-
+</head>
+<body>
+  
 <div class="" align="center" style="">
   <div class="top">
     <table class="" align="left">
       <tr>
         <td>
           <img style="width: 150px; margin-left: 50px;"
-            src="https://estaticos.sport.es/resources/jpg/9/1/1594845884519.jpg" />
+            src="assets/images/xycdi11704.png" />
         </td>
-        <td style="padding-left: 50px;">
-          <h1> Gracias por su compra!</h1>
+        <td style="padding-left: 0px;">
+          <h1> Express Nutrition.</h1>
         </td>
       </tr>
     </table>
   </div>
 
   <div class="tabla">
-    <h2>Hola {{$user->name}}.</h2>
-    <h3> Detalle de su Orden: {{$referencia}}.</h3>
+    <h2>Hola  {{$user->name}}.</h2>
+    <h3> Detalle de su Orden:  {{$referencia}}.</h3>
 
     <table class="productos" style="width: 60%;">
       <thead align="center">
@@ -100,35 +108,28 @@
         </tr>
       </thead>
       <tbody align="center">
-        <tr style="border-bottom: 1px solid #ddd important !;">
-          <td style="width: 30%;">
-            <img src="https://estaticos.sport.es/resources/jpg/9/1/1594845884519.jpg" />
-          </td>
-          <td>
-            <h5>platano fruta</h5>
-          </td>
-
-          <td>2</td>
-          <td>$1500</td>
-        </tr>
+      
+   @foreach($productos as $producto)
 
         <tr style="border-bottom: 1px solid #ddd important !;">
           <td style="width: 30%;">
-            <img src="https://estaticos.sport.es/resources/jpg/9/1/1594845884519.jpg" />
+            <img src="{{ Voyager::image($producto->image) }}" />
           </td>
           <td>
-            <h5>platano fruta</h5>
+            <h5>{{$producto->name}}</h5>
           </td>
 
-          <td>2</td>
-          <td>$1500</td>
+          <td>1</td>
+          <td>${{$producto->price}}</td>
         </tr>
+   @endforeach
 
+       
         <tr class="total">
           <td>
             <p>
-            <h5>Fecha de pago: {{$fecha}}</h5>
-            <h5> Metodo de pago: {{($metodo_pago!='' ? $metodo_pago : $referencia)}}</h5>
+            <h4>Fecha de pago:  {{$fecha}}</h4>
+            <h4> Metodo de pago:  {{($metodo_pago!='' ? $metodo_pago : $referencia)}}</h4>
             </p>
           </td>
           <td></td>
@@ -136,16 +137,14 @@
             <h2>Total:</h2>
           </td>
           <td align="rigth">
-            <h2>${{$total}} </h2>
+            <h2>$ {{$total}} </h2>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <a href="{{$url}}" class="btn" target="_blank"
-    data-saferedirecturl="https://www.google.com/url?q=https://cgabjbj.r.bh.d.sendibt3.com/tr/cl/gabnPX8_XQD-3-Q3EZDxC7iP0Pl26WeJvn84LzMcpArXU--23ILgS3dcbtfNT_p00kjVOlpTASqQ1YXkjTlkog95f5tMr0lNRVGJGYN9BYGbFIjY6_J5PXLfKk-OL4HjYSkK4Eam-Bqq317BsqsxfZdDE8NA7jDS0JMSsizcX84xB7W3F95RGOrqGTJHcvqmtgO1SuZS1zPamAmnVyzhJphkm8h-Ka93EPz-x1olz76L8ZiwcteRiPwUIqGlhyywpZlOhJM-IZYzLnZ0GJ-ZEeeXB-9tRdA5q1ML&amp;source=gmail&amp;ust=1594945939423000&amp;usg=AFQjCNHp8GQethfJvApf4wWfx_WB2F0mAg">Ver
-    detalles</a>
+  <a href=" {{$url}}" class="btn" target="_blank">Ver Detalles</a>
 
   <div class="" style="font-size: 18px;">
     Vuelva pronto, le esperamos con gusto!
@@ -160,3 +159,6 @@
   </div>
 
 </div>
+
+</body>
+</html>

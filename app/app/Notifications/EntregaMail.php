@@ -47,7 +47,7 @@ class EntregaMail extends Notification
     {
         return (new MailMessage)
         ->view(
-            'mails.mail', [ 
+            'mails.reciboCompra', [ 
 				'user'=>$this->user,
 				'fecha'=>$this->order['date'],
 				'metodo_pago'=>$this->order['lapPaymentMethod'],
