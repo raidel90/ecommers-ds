@@ -29,7 +29,7 @@
                 $payUStates->{7} = 'Pendiente';
                 @endphp
                 <div id="bootstrap-accordion_29" class="panel-group accordionStyles accordion col-sm-12 col-md-10 col-lg-12 align-left pt-5" role="tablist" aria-multiselectable="true">
-                    @php $orders = App\Order::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get() @endphp
+                    @php $orders = App\Order::where('user_id', auth()->user()->id)->where('state','APPROVED')->orderBy('id', 'desc')->get() @endphp
                     @if(count($orders) > 0)
                     @foreach($orders as $order) 
                     <div class="card text-center">
