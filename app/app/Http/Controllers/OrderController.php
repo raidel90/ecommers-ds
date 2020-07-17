@@ -39,7 +39,7 @@ class OrderController extends Controller
                 $price = $p->price;
             };
         
-            Cart::add([ 'id' => $p->id . '-' . $p->code, 'weight' => 0, 'name' => $p->name, 'qty' => $order->quantity, 'price' => $p->price, 'options' => ['image' => $p->image, 'description' => $p->description, 'sabores'=>$order->sabores]]);
+            Cart::add([ 'id' => $p->id . '-' . $p->code, 'weight' => $p->presentation, 'name' => $p->name, 'qty' => $order->quantity, 'price' => $p->price, 'options' => ['image' => $p->image, 'description' => $p->description, 'presentation'=>$p->presentation]]);
         }
         
         return redirect('/cart');

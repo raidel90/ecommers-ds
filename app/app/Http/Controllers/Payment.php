@@ -48,7 +48,6 @@ class Payment extends Controller
 			          'product_id' => explode("-", $row->id )[0])
 			);
 
-			$productos[]= Product::find(explode("-", $row->id )[0]);
 
 		}
 
@@ -66,11 +65,15 @@ class Payment extends Controller
             'transaction_id' => '',
             'date' => date('Y-m-d h:m:s'),
             'state' => 'APPROVED'
-        ]);
+		]);
+
+		$productos=Cart::content();
+
 		Cart::destroy(); 
         		
-				
-				Auth::user()->$user->notify(
+				$user=Auth::user();
+
+				$user->notify(
 					new EntregaMail($user,$order,$productos,$total)
 				);
 				   				

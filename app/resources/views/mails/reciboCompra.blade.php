@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-h2,h3,h4{
+h2,h3,h4,.despedida,.footer,.hi{
   color:black !important;
 }
   table {
@@ -20,7 +20,7 @@ h2,h3,h4{
     background-color: #377e97;
     margin: 50px;
     padding-top: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
     width: 60%;
     height: 65px;
     color: white;
@@ -29,6 +29,7 @@ h2,h3,h4{
 
   .top h1 {
     color: rgb(231, 222, 222);
+    font-size:45px;
   }
 
   .footer {
@@ -91,8 +92,8 @@ h2,h3,h4{
   </div>
 
   <div class="tabla">
-    <h2>Hola  {{$user->name}}.</h2>
-    <h3> Detalle de su Orden:  {{$referencia}}.</h3>
+    <h1 class="hi">Hola  {{$user->name}}.</h1>
+    <h1 class="hi"> Detalle de su Orden:  {{$referencia}}.</h1>
 
     <table class="productos" style="width: 60%;">
       <thead align="center">
@@ -111,15 +112,16 @@ h2,h3,h4{
       
    @foreach($productos as $producto)
 
-        <tr style="border-bottom: 1px solid #ddd important !;">
+        <tr  style="border-bottom: 1px solid #ddd important !;">
           <td style="width: 30%;">
-            <img src="{{ Voyager::image($producto->image) }}" />
+            <img src="{{ Voyager::image($producto->options->image) }}" />
           </td>
           <td>
-            <h5>{{$producto->name}}</h5>
+            <h4>{{$producto->name}}</h4>
+            <h5 style="color:gray;">{{$producto->options->presentation}}</h5>
           </td>
 
-          <td>1</td>
+          <td>{{$producto->qty}} </td>
           <td>${{$producto->price}}</td>
         </tr>
    @endforeach
@@ -146,7 +148,7 @@ h2,h3,h4{
 
   <a href=" {{$url}}" class="btn" target="_blank">Ver Detalles</a>
 
-  <div class="" style="font-size: 18px;">
+  <div class="despedida" style="font-size: 18px;">
     Vuelva pronto, le esperamos con gusto!
 
   </div>

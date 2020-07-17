@@ -50,7 +50,8 @@ class CartController extends Controller
             $price = $p->price;
         };
 
-        Cart::add([ 'id' => $p->id . '-' . $p->code, 'weight' => 0, 'name' => $p->name, 'qty' => 1, 'price' => $price, 'options' => ['image' => $p->image, 'description' => $p->description, 'sabores'=>'']]);
+        Cart::add([ 'id' => $p->id . '-' . $p->code, 'weight' => $p->presentation, 'name' => $p->name, 'qty' => 1, 'price' => $price, 'options' => ['image' => $p->image, 'description' => $p->description, 'presentation'=>$p->presentation]]);
+
         return "true";
     }
 
