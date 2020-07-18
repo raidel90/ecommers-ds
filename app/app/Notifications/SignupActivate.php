@@ -49,7 +49,7 @@ class SignupActivate extends Notification
             ->line('Muchas gracias por utilizar nuestra aplicación!');*/
 
             return (new MailMessage)
-
+            ->subject('Activación de Registro')
             ->view(
                 'mails.registro', ['url'=>$url]
             );

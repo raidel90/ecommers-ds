@@ -46,6 +46,8 @@ class EntregaMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+        ->subject('Detalles de su Compra')
+        ->cc(env('MAIL_CC'))
         ->view(
             'mails.reciboCompra', [ 
 				'user'=>$this->user,

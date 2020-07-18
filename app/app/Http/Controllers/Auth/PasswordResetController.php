@@ -42,7 +42,7 @@ class PasswordResetController extends Controller
                 new PasswordResetRequest($passwordReset->token)
             );
 
-            $request->session()->flash('success', 'Revisa tu bandeja de entrada');
+            $request->session()->flash('status', 'Revisa tu bandeja de entrada');
             return $this->index();
     }
     /**

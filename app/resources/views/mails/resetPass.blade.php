@@ -34,6 +34,9 @@
             height: 30px;
             text-shadows:30px;
         }  
+        h3, h4, .footer {
+            color:black !important;
+        }
 
 </style>
 
@@ -48,8 +51,8 @@
                 </td>
 
                 <td>
-                    <h2 style="color:#f4eeef !important; text-shadow: 2px 1px 3px black;">Gracias por registrarte!</h2>
-                    <h2 style="color:#f4eeef !important; text-shadow: 2px 1px 3px black;"> Antes de continuar, debes configurar tu cuenta!</h2>
+                    <h1 style="color:#f4eeef !important; text-shadow: 2px 1px 3px black;">Express Nutrition</h1>
+                    <h2 style="color:#f4eeef !important; text-shadow: 2px 1px 3px black;">Solicitud de Cambio de Contraseña!</h2>
                 </td>
 
             </tr>
@@ -59,9 +62,9 @@
     </div>
 
 
-    <h2>Por Favor confirme su suscripción.</h2>
+    <h3>Sino ha hecho tal solicitud ignore este correo y verifique la seguridad de su cuenta.</h3>
 
-    <a class="btn" href="{{$url}}"  target="_blank"> Confirmar tu cuenta    </a>
+    <a class="btn" href="{{$url}}"  target="_blank"> Cambiar Contraseña  </a>
 
     <div align='left' style="margin:80px; margin-left:33%;">
         <h4>Muchas gracias por utilizar nuestra aplicación!</h4>
@@ -71,7 +74,7 @@
 
 
     <div style=" width:61%; ">
-         Si tienes problemas haciendo click en el botón "Confirmar tu cuenta", copia y pega el siguiente enlace en tu navegador:
+         Si tienes problemas haciendo click en el botón "Cambiar Contraseña", copia y pega el siguiente enlace en tu navegador:
          <a href="{{$url}}">{{$url}}</a>
     </div>
 
