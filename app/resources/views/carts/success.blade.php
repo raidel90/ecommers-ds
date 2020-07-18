@@ -117,11 +117,10 @@
                         <tr class="table-heads">
                            <th class="head-item mbr-fonts-style display-4">Tipo de pago:</th>
                            <th class="head-item mbr-fonts-style display-4">
-                               @if($order->reference)
+                               @if($order->reference=='Contra Entrega')
                                     Contra Entrega
                                 @else
-                                
-                                   PayU
+                                   PayU ({{ $order->lapPaymentMethod}})
                                 @endif
                             </th>
                         </tr>

@@ -93,7 +93,7 @@ h2,h3,h4,.despedida,.footer,.hi{
 
   <div class="tabla">
     <h1 class="hi">Hola  {{$user->name}}.</h1>
-    <h1 class="hi"> Detalle de su Orden:  {{$referencia}}.</h1>
+    <h1 class="hi"> Detalle de su Orden:  {{$referencia}}</h1>
 
     <table class="productos" style="width: 60%;">
       <thead align="center">
@@ -122,7 +122,7 @@ h2,h3,h4,.despedida,.footer,.hi{
           </td>
 
           <td>{{$producto->qty}} </td>
-          <td>${{$producto->price}}</td>
+          <td style="color:black !important;">${{$producto->price}}</td>
         </tr>
    @endforeach
 

@@ -8,6 +8,9 @@ use App\User;
 use Auth;
 use URL;
 use Redirect;
+use App\Product;
+use App\Notifications\EntregaMail;
+
 
 class OrderController extends Controller
 {
@@ -146,13 +149,23 @@ class OrderController extends Controller
      */
     public function update(Request $request)
     {
+        /*
+        http://localhost:8000/success?merchantId=878812&merchant_name=Carlos+Andres+Romero+Ortiz&merchant_address=calle+26bsur+12i-65&telephone=3204358842&merchant_url=&transactionState=6&lapTransactionState=DECLINED&message=APPROVED&referenceCode=jdWSg8ilYyBlhnzYwXc&reference_pol=483869173&transactionId=c6ed286e-3b83-4d4c-86d3-3403554d0a1a&description=Compra+de+productos%3A+Mora+Deshidratada.&trazabilityCode=&cus=&orderLanguage=es&extra1=&extra2=&extra3=&polTransactionState=4&signature=38262e168504d5dca86375fc55cbdd31&polResponseCode=23&lapResponseCode=ANTIFRAUD_REJECTED&risk=&polPaymentMethod=12&lapPaymentMethod=AMEX&polPaymentMethodType=2&lapPaymentMethodType=CREDIT_CARD&installmentsNumber=1&TX_VALUE=22000.00&TX_TAX=.00&currency=COP&lng=es&pseCycle=&buyerEmail=guerrerodel90%40gmail.com&pseBank=&pseReference1=&pseReference2=&pseReference3=&authorizationCode=&TX_ADMINISTRATIVE_FEE=.00&TX_TAX_ADMINISTRATIVE_FEE=.00&TX_TAX_ADMINISTRATIVE_FEE_RETURN_BASE=.00&processingDate=2020-07-17
+        http://localhost:8000/success?merchantId=878812&merchant_name=Carlos+Andres+Romero+Ortiz&merchant_address=calle+26bsur+12i-65&telephone=3204358842&merchant_url=&transactionState=6&lapTransactionState=DECLINED&message=DECLINED&referenceCode=zzcIAWJrT1dgiI5nOuw&reference_pol=483869173&transactionId=c6ed286e-3b83-4d4c-86d3-3403554d0a1a&description=Compra+de+productos%3A+Mora+Deshidratada.&trazabilityCode=&cus=&orderLanguage=es&extra1=&extra2=&extra3=&polTransactionState=6&signature=38262e168504d5dca86375fc55cbdd31&polResponseCode=23&lapResponseCode=ANTIFRAUD_REJECTED&risk=&polPaymentMethod=12&lapPaymentMethod=AMEX&polPaymentMethodType=2&lapPaymentMethodType=CREDIT_CARD&installmentsNumber=1&TX_VALUE=22000.00&TX_TAX=.00&currency=COP&lng=es&pseCycle=&buyerEmail=guerrerodel90%40gmail.com&pseBank=&pseReference1=&pseReference2=&pseReference3=&authorizationCode=&TX_ADMINISTRATIVE_FEE=.00&TX_TAX_ADMINISTRATIVE_FEE=.00&TX_TAX_ADMINISTRATIVE_FEE_RETURN_BASE=.00&processingDate=2020-07-17
+        */
+
         $order = \App\Order::where('referenceCode', $request->get('referenceCode'))->firstOrFail();
         $order->payu_order_id = $_REQUEST["reference_pol"];
         $order->transaction_id = $_REQUEST["transactionId"];
         $order->state = $_REQUEST["lapTransactionState"];
         
         $cart = Cart::count();
+        $total=0;
+        foreach(Cart::content() as $row){	
+            $total += $row->price;
 
+        }
+        $productos=Cart::content();
 
 
         $ApiKey = env('PAYU_API_KEY', null);
@@ -166,11 +179,11 @@ class OrderController extends Controller
         $firmacreada = md5($firma_cadena);
         $firma = $_REQUEST['signature'];
 
-        
 
         $order->TX_VALUE = $request->get('TX_VALUE');
         $order->description = $request->get('description');
         $order->referenceCode = $request->get('referenceCode');
+        $order->reference = $request->get('referenceCode');
         $order->currency = $request->get('currency');
         $order->transactionState = $request->get('transactionState');
         $order->reference_pol = $request->get('reference_pol');
@@ -179,45 +192,50 @@ class OrderController extends Controller
         $order->pseBank = $request->get('pseBank');
         $order->lapPaymentMethod = $request->get('lapPaymentMethod');
         $order->transactionId = $request->get('transactionId');
-        
+        $order->date = date('Y-m-d h:m:s');
+
         
        
 
-        
-        $msg = 'con éxito, en la menor brevedad y te lo enviarémos lo antes posible';
+
         if ($_REQUEST['transactionState'] == 4 ) {
             $estadoTx = "Transacción aprobada";
+        
             $user = User::find($order->user_id);
-            $user->notify(new NewOrder($user));
+
+				$user->notify(
+					new EntregaMail($user,$order,$productos,$total)
+                );
+                
         }
 
         else if ($_REQUEST['transactionState'] == 6 ) {
-            $msg = 'pero la transacción fue rechazada';
             $estadoTx = "Transacción rechazada";
         }
 
         else if ($_REQUEST['transactionState'] == 104 ) {
-            $msg = 'pero hubo un error, intentalo nuevamente';
             $estadoTx = "Error";
         }
 
         else if ($_REQUEST['transactionState'] == 7 ) {
-            $msg = 'y está en estado pendiente, en cuanto se complete el pago enviaremos tus productos';
             $estadoTx = "Transacción pendiente";
         }
 
         else {
-            $msg = $_REQUEST['mensaje'];
             $estadoTx=$_REQUEST['mensaje'];
         }
 
         $order->estadoTx = $request->get('estadoTx');
 
         //para no guardar en BD la orden sino fue exitosa.
-        if($_REQUEST['transactionState'] == 4)
-        $order->save();
+        if($_REQUEST['transactionState'] != 4)
+            {
+                $order->delete();
+                return redirect('/cart');
 
+            }
  
+        $order->save();
 
 
 
